@@ -1,213 +1,148 @@
 import React from "react";
 import { IoCloudUploadSharp } from "react-icons/io5";
+import { FaTag, FaFileAlt, FaDollarSign, FaHashtag, FaStar, FaBox } from "react-icons/fa";
 
 const ProductForm = ({ data, handleinput, createproduct, id, handlefile }) => {
+  const InputGroup = ({ label, name, type, value, placeholder, icon: Icon, step }) => (
+    <div className="space-y-4">
+      <label className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] ml-2">{label}</label>
+      <div className="relative group">
+        <div className="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none text-slate-600 group-focus-within:text-indigo-400 transition-colors">
+          <Icon className="text-sm" />
+        </div>
+        <input
+          name={name}
+          required
+          type={type}
+          step={step}
+          onChange={handleinput}
+          value={value}
+          placeholder={placeholder}
+          className="w-full bg-white/[0.03] border border-white/10 rounded-2xl py-4 pl-12 pr-6 text-white placeholder:text-slate-700 outline-none focus:border-indigo-500/50 focus:ring-4 focus:ring-indigo-500/10 transition-all font-bold"
+        />
+      </div>
+    </div>
+  );
+
   return (
-    <>
-      <div className="w-full flex flex-col gap-5">
-        <img alt="Your Company" src="/img/mainlogo.png" className="mx-auto h-20 w-auto" />
-        <h2 className=" text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-          {id ? "Update" : "Create New"} Product
-        </h2>
-      </div>
+    <div className="w-full">
+      <form className="space-y-8" onSubmit={createproduct}>
+        <InputGroup 
+          label="Product Name" 
+          name="name" 
+          type="text" 
+          value={data.name} 
+          placeholder="Astro Edition X1" 
+          icon={FaTag} 
+        />
+        
+        <div className="space-y-4">
+          <label className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] ml-2">Description</label>
+          <div className="relative group">
+            <div className="absolute top-4 left-5 pointer-events-none text-slate-600 group-focus-within:text-indigo-400 transition-colors">
+              <FaFileAlt className="text-sm" />
+            </div>
+            <textarea
+              name="description"
+              required
+              rows="4"
+              onChange={handleinput}
+              value={data.description}
+              placeholder="Detail the essence of this product..."
+              className="w-full bg-white/[0.03] border border-white/10 rounded-3xl py-4 pl-12 pr-6 text-white placeholder:text-slate-700 outline-none focus:border-indigo-500/50 focus:ring-4 focus:ring-indigo-500/10 transition-all font-bold resize-none"
+            />
+          </div>
+        </div>
 
-      <div className="mt-10 w-full">
-        <form className="space-y-6" onSubmit={createproduct}>
-          <div>
-            <label
-              htmlFor="name"
-              className="text-start text-sm font-medium leading-6 text-gray-900"
-            >
-              Product Name
-            </label>
-            <div className="mt-2">
-              <input
-                name="name"
-                required
-                type="text"
-                onChange={handleinput}
-                value={data.name}
-                placeholder="Enter Product Name"
-                className="w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600
-                 sm:text-sm sm:leading-6"
-              />
-            </div>
-          </div>
-          <div>
-            <label
-              htmlFor="description"
-              className="block text-start  text-sm font-medium leading-6 text-gray-900"
-            >
-              description
-            </label>
-            <div className="mt-2">
-              <input
-                name="description"
-                placeholder="Enter description"
-                required
-                onChange={handleinput}
-                type="text"
-                value={data.description}
-                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600
-                 sm:text-sm sm:leading-6"
-              />
-            </div>
-          </div>
-          <div>
-            <label
-              htmlFor="price"
-              className="block text-start  text-sm font-medium leading-6 text-gray-900"
-            >
-              price
-            </label>
-            <div className="mt-2">
-              <input
-                name="price"
-                onChange={handleinput}
-                required
-                placeholder="Enter price"
-                type="number"
-                value={data.price}
-                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600
-                 sm:text-sm sm:leading-6"
-              />
-            </div>
-          </div>
-          <div>
-            <label
-              htmlFor="pricediscount"
-              className="block text-start  text-sm font-medium leading-6 text-gray-900"
-            >
-              pricediscount
-            </label>
-            <div className="mt-2">
-              <input
-                onChange={handleinput}
-                name="pricediscount"
-                placeholder="Enter pricediscount Number"
-                required
-                type="number"
-                value={data.pricediscount}
-                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600
-                 sm:text-sm sm:leading-6"
-              />
-            </div>
-          </div>
-          <div>
-            <label
-              htmlFor="brand"
-              className="block text-start  text-sm font-medium leading-6 text-gray-900"
-            >
-              brand
-            </label>
-            <div className="mt-2">
-              <input
-                onChange={handleinput}
-                name="brand"
-                required
-                type="text"
-                value={data.brand}
-                placeholder="Enter brand"
-                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600
-                 sm:text-sm sm:leading-6"
-              />
-            </div>
-          </div>
-          <div>
-            <label
-              htmlFor="category"
-              className="block text-start  text-sm font-medium leading-6 text-gray-900"
-            >
-              category
-            </label>
-            <div className="mt-2">
-              <input
-                onChange={handleinput}
-                name="category"
-                required
-                type="text"
-                value={data.category}
-                placeholder="Enter category"
-                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600
-                 sm:text-sm sm:leading-6"
-              />
-            </div>
-          </div>
-          <div>
-            <label
-              htmlFor="thumbnail "
-              className="block text-start py-2  text-sm font-medium leading-6 text-gray-900"
-            >
-              thumbnails
-            </label>
+        <div className="grid grid-cols-2 gap-8">
+          <InputGroup 
+            label="Base Price" 
+            name="price" 
+            type="number" 
+            value={data.price} 
+            placeholder="0.00" 
+            icon={FaDollarSign} 
+          />
+          <InputGroup 
+            label="Discounted Price" 
+            name="pricediscount" 
+            type="number" 
+            value={data.pricediscount} 
+            placeholder="0.00" 
+            icon={FaDollarSign} 
+          />
+        </div>
 
-            <div className="flex items-center justify-center w-fit px-5 py-2 my-auto text-white  rounded-lg cursor-pointer focus-within:outline-none bg-indigo-500 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500 shadow-lg hover:shadow-indigo-400 transition duration-300 ease-in-out">
-              <IoCloudUploadSharp className="h-6 w-6 text-white mr-3" />
-              <label className="cursor-pointer">
-                <span className="font-semibold text-white">Upload Thumbnails</span>
-                <input
-                  type="file"
-                  name="thumbnail"
-                  onChange={handlefile}
-                  multiple
-                  required
-                  className="hidden" 
-                />
-              </label>
+        <div className="grid grid-cols-2 gap-8">
+          <InputGroup 
+            label="Brand Entity" 
+            name="brand" 
+            type="text" 
+            value={data.brand} 
+            placeholder="SwiftPick" 
+            icon={FaHashtag} 
+          />
+          <InputGroup 
+            label="Category Matrix" 
+            name="category" 
+            type="text" 
+            value={data.category} 
+            placeholder="Elite" 
+            icon={FaBox} 
+          />
+        </div>
+
+        <div className="grid grid-cols-2 gap-8">
+          <InputGroup 
+            label="Initial Rating" 
+            name="rating" 
+            type="number" 
+            step="0.1"
+            value={data.rating} 
+            placeholder="4.5" 
+            icon={FaStar} 
+          />
+          <InputGroup 
+            label="Inventory Stock" 
+            name="stock" 
+            type="number" 
+            value={data.stock} 
+            placeholder="100" 
+            icon={FaBox} 
+          />
+        </div>
+
+        <div className="space-y-4">
+          <label className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] ml-2">Visual Assets</label>
+          <div className="flex items-center justify-center p-12 border-2 border-dashed border-white/10 rounded-[2.5rem] bg-white/[0.01] hover:bg-white/[0.03] hover:border-indigo-500/30 transition-all group relative cursor-pointer">
+            <input
+              type="file"
+              name="thumbnail"
+              onChange={handlefile}
+              multiple
+              className="absolute inset-0 opacity-0 cursor-pointer" 
+            />
+            <div className="text-center">
+              <div className="w-16 h-16 rounded-2xl bg-indigo-500/10 flex items-center justify-center text-indigo-400 mx-auto mb-4 group-hover:scale-110 transition-transform">
+                <IoCloudUploadSharp className="text-3xl" />
+              </div>
+              <p className="text-sm font-black text-white uppercase italic tracking-tighter">Upload High-Res Textures</p>
+              <p className="text-[10px] text-slate-600 uppercase font-black tracking-widest mt-2">Drag & Drop or Tap and Select</p>
             </div>
           </div>
-          <div>
-            <label
-              htmlFor="rating"
-              className="block text-start  text-sm font-medium leading-6 text-gray-900"
-            >
-              rating
-            </label>
-            <div className="mt-2">
-              <input
-                name="rating"
-                required
-                onChange={handleinput}
-                type="text"
-                value={data.rating}
-                placeholder="Enter rating"
-                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600
-                 sm:text-sm sm:leading-6"
-              />
-            </div>
-          </div>
-          <div>
-            <label
-              htmlFor="stock"
-              className="block text-start  text-sm font-medium leading-6 text-gray-900"
-            >
-              stock
-            </label>
-            <div className="mt-2">
-              <input
-                name="stock"
-                onChange={handleinput}
-                required
-                type="text"
-                value={data.stock}
-                placeholder="Enter a stock number"
-                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600
-                 sm:text-sm sm:leading-6"
-              />
-            </div>
-          </div>
-          <div>
-            <button
-              type="submit"
-              className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-            >
-              {id ? "Update Product" : "Create Product"}
-            </button>
-          </div>
-        </form>
-      </div>
-    </>
+        </div>
+
+        <button
+          type="submit"
+          className="w-full py-6 bg-indigo-500 hover:bg-indigo-600 text-white font-black rounded-[2rem] flex items-center justify-center gap-4 transition-all shadow-[0_20px_50px_rgba(99,102,241,0.3)] active:scale-[0.98] text-2xl italic tracking-tighter uppercase"
+        >
+          {id ? "Sync Changes" : "Forge Product"}
+        </button>
+      </form>
+    </div>
   );
 };
 
 export default ProductForm;
+
+

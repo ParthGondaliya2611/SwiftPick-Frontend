@@ -1,25 +1,9 @@
 export const slides = [
   {
-    image:
-      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1727089459/Croma%20Assets/CMS/LP%20Page%20Banners/2024/Pujo/HP%20Rotating%20Banners/HP_DurgaPuja_23Sep2024_xebhss.png",
-    label: "Banner image",
-  },
-
-  {
-    image:
-      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1727442866/Croma%20Assets/CMS/Homepage%20Banners/HP%20Rotating/2024/Sep/28092024/HP_Rotating_OneplusNordCE4Lite_28Sep2024_bppgex.jpg",
-    label: "oneplus Smartphone image",
-  },
-  {
-    image:
-      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1727500084/Croma%20Assets/CMS/LP%20Page%20Banners/2024/Sanity/HP/Sept/28092024/HP_Rotating_BTS_28Sep2024_xpucwh.jpg",
-    label: "Best Deal Bluethooth Speaker",
-  },
-  {
-    image:
-      "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1727500084/Croma%20Assets/CMS/LP%20Page%20Banners/2024/Sanity/HP/Sept/28092024/HP_Rotating_Cameras_28Sep2024_oaj4hg.jpg",
-    label: "Mini 12 Canvas Camera",
-  },
+    image: "/premium-banner.png",
+    label: "Future of Innovation",
+    description: "Experience the next generation of premium technology and elite lifestyle essentials.",
+  }
 ];
 
 export const categoryphotos = [

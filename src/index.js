@@ -17,8 +17,8 @@ root.render(
       <CartProvider>
         <BrowserRouter>
           <ToastContainer
-            position="top-right" /* This sets the horizontal position to center */
-            style={{ top: "10%" }} /* Set custom top offset */
+            position="top-right"
+            theme="dark"
             autoClose={1500}
           />
           <App />
