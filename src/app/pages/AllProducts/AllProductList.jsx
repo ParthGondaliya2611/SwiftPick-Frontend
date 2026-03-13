@@ -8,7 +8,6 @@ import { FormControl, MenuItem, Select, ThemeProvider, createTheme } from "@mui/
 import { api } from "../../../utils/api";
 import { Prices } from "../../data/PricesFilterData";
 import Layout from "../../layout/Layout";
-import ProductCardLoader from "../../components/common/Loader/ProductCardLoader";
 
 // Dark theme for MUI components
 const darkTheme = createTheme({

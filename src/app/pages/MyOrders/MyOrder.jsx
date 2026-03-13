@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import NotFound from "../../components/common/ItemNotFound";
 import { api } from "../../../utils/api";
 import Layout from "../../layout/Layout";
-import { FaBoxOpen, FaCalendarAlt, FaShippingFast, FaTimesCircle } from "react-icons/fa";
+import { FaBoxOpen,  FaShippingFast, FaTimesCircle } from "react-icons/fa";
 
 const MyOrder = () => {
   const [orderData, setorderData] = useState([]);

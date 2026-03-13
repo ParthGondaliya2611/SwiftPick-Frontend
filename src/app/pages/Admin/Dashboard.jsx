@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Token from "../../../utils/Token";
 import { api } from "../../../utils/api";
 import DashboardPannel from "../../layout/DashboardPannel";
@@ -76,7 +76,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     singleUser();
-  }, [update]);
+  }, [update,singleUser]);
 
   return (
     <Layout title={`Command Center - ${Value.name || "User"}`}>

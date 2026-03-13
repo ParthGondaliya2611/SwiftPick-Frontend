@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import { PiShoppingCartDuotone } from "react-icons/pi";
@@ -8,7 +8,6 @@ import StarRatings from "react-star-ratings";
 import { api } from "../../../utils/api";
 import Layout from "../../layout/Layout";
 import ProductCard from "../../components/common/ProductCard";
-import ProductCardLoader from "../../components/common/Loader/ProductCardLoader";
 import ProductDetailLoader from "../../components/common/Loader/ProductDetailLoader";
 
 const ProductDetail = () => {
