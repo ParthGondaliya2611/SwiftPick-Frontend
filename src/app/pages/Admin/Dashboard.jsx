@@ -76,6 +76,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     singleUser();
+   // eslint-disable-next-line
   }, [update]);
 
   return (
