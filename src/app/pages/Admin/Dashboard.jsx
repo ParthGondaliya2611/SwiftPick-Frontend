@@ -76,7 +76,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     singleUser();
-  }, [update,singleUser]);
+  }, [update]);
 
   return (
     <Layout title={`Command Center - ${Value.name || "User"}`}>
